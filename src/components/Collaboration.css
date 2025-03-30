@@ -1,0 +1,84 @@
+.collaboration {
+	padding: 6rem 0;
+	background: #111;
+}
+
+.collaboration__container {
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 0 2rem;
+}
+
+.collaboration__title {
+	font-size: 2.5rem;
+	color: white;
+	text-align: center;
+	margin-bottom: 3rem;
+}
+
+.collaboration__grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+	gap: 2rem;
+	position: relative;
+}
+
+.collaboration-card {
+	background: #1a1a1a;
+	border-radius: 10px;
+	padding: 2rem;
+	text-align: center;
+	transition: transform 0.3s ease;
+}
+
+.collaboration-card:hover {
+	transform: translateY(-5px);
+}
+
+.collaboration-card__icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.collaboration-card__title {
+	font-size: 1.5rem;
+	margin: 1rem 0;
+	color: #8a2be2;
+}
+
+.collaboration-card__description {
+	color: #aaa;
+	line-height: 1.6;
+	margin-bottom: 1.5rem;
+}
+
+.collaboration-card__button {
+	display: inline-block;
+	padding: 0.5rem 1rem;
+	background: #8a2be2;
+	color: white;
+	text-decoration: none;
+	border-radius: 4px;
+	font-weight: bold;
+	margin-top: 1rem;
+	transition: background-color 0.3s ease;
+	-webkit-tap-highlight-color: transparent;
+}
+
+/* Стили для кнопки, расположенной после карточек */
+.collaboration__grid > .collaboration-card__button {
+	grid-column: 1 / -1;
+	width: max-content;
+	justify-self: center;
+	margin-top: 2rem;
+	padding: 0.8rem 2rem;
+	font-size: 1.1rem;
+}
+
+.collaboration-card__button:hover {
+	background: #6a1fb1;
+}
+
+.collaboration-card__button:focus {
+	outline: none;
+}

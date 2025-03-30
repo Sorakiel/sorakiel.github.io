@@ -1,0 +1,98 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+/* Убираем стандартную обводку при фокусе на всех элементах */
+*:focus {
+	outline: none;
+}
+
+/* Убираем эффект тапа (голубое выделение) на мобильных устройствах */
+* {
+	-webkit-tap-highlight-color: transparent;
+}
+
+/* Стилизация скроллбара */
+::-webkit-scrollbar {
+	width: 10px;
+}
+
+::-webkit-scrollbar-track {
+	background: #0f0f0f;
+}
+
+::-webkit-scrollbar-thumb {
+	background: #8a2be2;
+	border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background: #6a1fb1;
+}
+
+/* Firefox */
+* {
+	scrollbar-width: thin;
+	scrollbar-color: #8a2be2 #0f0f0f;
+}
+
+body {
+	font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
+		'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+		sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	background: #0a0a0a;
+	color: white;
+	min-height: 100vh;
+}
+
+.app {
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+}
+
+main {
+	flex: 1;
+	padding-top: 80px;
+}
+
+.container {
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 0 2rem;
+}
+
+@media (max-width: 768px) {
+	.container {
+		padding: 0 1rem;
+	}
+}
+
+/* Animations */
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+		transform: translateY(20px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+.hero,
+.projects,
+.skills,
+.collaboration,
+.contacts {
+	animation: fadeIn 1s ease-out;
+}
+
+/* Блокировка прокрутки при открытом мобильном меню */
+body.menu-open {
+	overflow: hidden;
+}
