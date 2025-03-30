@@ -85,3 +85,40 @@
 .project-card__link:focus {
 	outline: none;
 }
+
+/* Адаптация для мобильных устройств */
+@media (max-width: 768px) {
+	.projects {
+		padding: 4rem 0;
+	}
+
+	.projects__title {
+		font-size: 2rem;
+		margin-bottom: 2rem;
+	}
+
+	.projects__grid {
+		grid-template-columns: 1fr;
+		gap: 1.5rem;
+	}
+}
+
+/* Для очень маленьких экранов */
+@media (max-width: 480px) {
+	.projects {
+		padding: 3rem 0;
+	}
+
+	.projects__title {
+		font-size: 1.8rem;
+		margin-bottom: 1.5rem;
+	}
+
+	.project-card__title {
+		font-size: 1.3rem;
+	}
+
+	.project-card__description {
+		font-size: 0.9rem;
+	}
+}
