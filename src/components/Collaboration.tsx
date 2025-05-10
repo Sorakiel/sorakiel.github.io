@@ -40,9 +40,9 @@ const Collaboration: FC = () => {
 							</p>
 						</article>
 					))}
-					<a href='#contacts' className='collaboration-card__button'>
+					{/*<a href='#contacts' className='collaboration-card__button'>
 						Обсудить проект
-					</a>
+					</a>*/}
 				</div>
 			</div>
 		</section>
