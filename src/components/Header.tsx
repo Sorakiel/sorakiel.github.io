@@ -4,7 +4,7 @@ import { toggleTheme } from '../lib/theme'
 import { useInspecting, useUI } from '../ui/useUI'
 
 // Шапка (SPEC §6.1). Линия снизу (.sc) ставится прямо на DOM, без стейта React.
-// Горячая клавиша I, перехват кликов и подсказка инспектора: PR 6.
+// Клавиша I и перехват кликов - в lib/inspector.ts (его создаёт overlays/Inspector.tsx).
 export default function Header() {
   const ref = useRef<HTMLElement>(null)
   const ui = useUI()
