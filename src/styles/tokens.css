@@ -1,0 +1,52 @@
+/* Токены: цвета обеих тем, шрифты, кривые, сетка. Источник: docs/redesign/reference/src/styles.css, строки 3-19. */
+:root {
+  --bg: #efeef3;
+  --surface: #fafafc;
+  --ink: #100d18;
+  --ink2: #433e52;
+  --ink3: #6b6679;
+  --line: rgba(16, 13, 24, 0.12);
+  --accent: #6236e0;
+  --on: #ffffff;
+  --tint: transparent;
+  --ok: #1f9d63;
+  --bad: #d9443b; /* status colors: free / busy, saved / failed */
+  --m: #f6b26b;
+  --p: #93c47d;
+  --c: #6fa8dc; /* box model, as in browser devtools */
+  --display: 'Wix Madefor Display', 'Segoe UI', system-ui, -apple-system, sans-serif;
+  --text: 'Wix Madefor Text', 'Segoe UI', system-ui, -apple-system, sans-serif;
+  --mono: 'Martian Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+  --ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --spring: cubic-bezier(0.34, 1.4, 0.64, 1);
+  --gut: clamp(16px, 3.4vw, 48px);
+  --gap: clamp(12px, 1.6vw, 24px);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    --bg: #0b0a10;
+    --surface: #15131d;
+    --ink: #edebf4;
+    --ink2: #c8c3d8;
+    --ink3: #958fa8;
+    --line: rgba(237, 235, 244, 0.13);
+    --accent: #ae95ff;
+    --on: #0b0a10;
+    --ok: #3dd68c;
+    --bad: #ff6b5e;
+    color-scheme: dark;
+  }
+}
+:root[data-theme='dark'] {
+  --bg: #0b0a10;
+  --surface: #15131d;
+  --ink: #edebf4;
+  --ink2: #c8c3d8;
+  --ink3: #958fa8;
+  --line: rgba(237, 235, 244, 0.13);
+  --accent: #ae95ff;
+  --on: #0b0a10;
+  --ok: #3dd68c;
+  --bad: #ff6b5e;
+  color-scheme: dark;
+}
