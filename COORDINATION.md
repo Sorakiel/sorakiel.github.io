@@ -10,9 +10,9 @@
 
 | Исполнитель | PR (`SPEC.md` §13) | Статус |
 | --- | --- | --- |
-| Вега | 1 основа и заглушки → 2 шапка, тема, герой → 6 инспектор | не начато |
-| Орион | 3 список работ → 7 адаптив и появление при прокрутке | ждёт PR 1 |
-| Лира | 4 кейсы → 5 обо мне и контакты → 8 доступность, скорость, тесты | ждёт PR 1 |
+| Кварц | 1 основа и заглушки → 2 шапка, тема, герой → 6 инспектор | не начато |
+| Ясень | 3 список работ → 7 адаптив и появление при прокрутке | ждёт PR 1 |
+| Лён | 4 кейсы → 5 обо мне и контакты → 8 доступность, скорость, тесты | ждёт PR 1 |
 
 ### Очередь мержа в `redesign`
 
@@ -20,11 +20,11 @@
 
 ### Зоны файлов
 
-- **Вега:** `Header`, `Hero`, `lib/theme.ts`, `overlays/Inspector.tsx`, `lib/inspector.ts`, `lib/intro.ts`, `header.css`, `hero.css`, `inspector.css`.
-- **Орион:** `Work`, `ProjectRow`, `ProjectMedia`, `ProjectFacts`, `Peek`, `Lightbox`, `work.css`, `peek.css`, `lightbox.css`.
-- **Лира:** `Case*`, `About`, `Stack`, `Contact*`, `Toast`, `case.css`, `about.css`, `contact.css`, `toast.css`.
-- **Общее** (`tokens.css`, `base.css`, `App.tsx`, `UIContext.tsx`, `lib/env.ts`, `data/*`): после PR 1 меняет только Вега, остальные просят через Диспетчера.
-- PR 7 правит медиазапросы во всех CSS: Орион берёт его последним и согласует с владельцами файлов.
+- **Кварц:** `Header`, `Hero`, `lib/theme.ts`, `overlays/Inspector.tsx`, `lib/inspector.ts`, `lib/intro.ts`, `header.css`, `hero.css`, `inspector.css`.
+- **Ясень:** `Work`, `ProjectRow`, `ProjectMedia`, `ProjectFacts`, `Peek`, `Lightbox`, `work.css`, `peek.css`, `lightbox.css`.
+- **Лён:** `Case*`, `About`, `Stack`, `Contact*`, `Toast`, `case.css`, `about.css`, `contact.css`, `toast.css`.
+- **Общее** (`tokens.css`, `base.css`, `App.tsx`, `UIContext.tsx`, `lib/env.ts`, `data/*`): после PR 1 меняет только Кварц, остальные просят через Диспетчера.
+- PR 7 правит медиазапросы во всех CSS: Ясень берёт его последним и согласует с владельцами файлов.
 
 ### Правила
 
