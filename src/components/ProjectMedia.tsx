@@ -4,8 +4,14 @@ import type { Project } from '../data/projects'
 import { shots, type ShotKey } from '../data/shots'
 import { useUI } from '../ui/useUI'
 
+type Props = {
+  project: Project
+  /** false - картинки без src: строка ещё не раскрывалась и под курсором не была */
+  load: boolean
+}
+
 /** Лента скриншотов в открытой строке: все одной высоты, по клику открываются в лайтбоксе. */
-export default function ProjectMedia({ project: p }: { project: Project }) {
+export default function ProjectMedia({ project: p, load }: Props) {
   const ui = useUI()
   const items = p.media.map((key) => shots[key as ShotKey])
   const sum = items.reduce((a, s) => a + s.ratio, 0)
@@ -27,7 +33,7 @@ export default function ProjectMedia({ project: p }: { project: Project }) {
           onClick={zoom}
         >
           <img
-            src={s.src}
+            src={load ? s.src : undefined}
             width={s.width}
             height={s.height}
             alt={`Скриншот ${p.name}`}
