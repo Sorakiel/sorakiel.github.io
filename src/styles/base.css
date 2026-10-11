@@ -1,5 +1,5 @@
 /* Основа: сброс, body, сетка, общие кнопки и подписи, шапки разделов.
-   Источник: docs/redesign/reference/src/styles.css, строки 22-43, 90-94 и 282-285. */
+   Источник: docs/redesign/reference/src/styles.css, строки 22-43, 90-94, 216-222 и 282-285. */
 * {
   box-sizing: border-box;
 }
@@ -157,6 +157,35 @@ button {
     grid-column: 1/-1;
     justify-self: start;
     text-align: left;
+  }
+}
+
+/* ---------- scroll reveal (progressive: without support everything is simply visible) ----------
+   Источник: docs/redesign/reference/src/styles.css, строки 216-222. */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .rv {
+      animation: rv linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 55%;
+    }
+    .big {
+      animation: tight linear both;
+      animation-timeline: view();
+      animation-range: entry 0% cover 45%;
+    }
+  }
+}
+@keyframes rv {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+}
+@keyframes tight {
+  from {
+    letter-spacing: 0;
+    opacity: 0.3;
   }
 }
 
