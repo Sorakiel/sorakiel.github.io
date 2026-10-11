@@ -60,7 +60,8 @@ export default function ProjectRow({ project: p, index }: Props) {
           </svg>
         </span>
       </button>
-      <div className="project-panel" id={panelId}>
+      {/* Свёрнутая панель скрыта только визуально (0fr), inert убирает её из Tab и дерева доступности. */}
+      <div className="project-panel" id={panelId} inert={!open}>
         <div>
           <div className="grid-12 project-body">
             <ProjectMedia project={p} />
