@@ -1,2 +1,43 @@
-/* Владелец: Ясень (PR 3). Перенести из docs/redesign/reference/src/styles.css: лайтбокс, строки 138-141.
-   Имена классов не менять. Стили reduced-motion и общие классы уже в base.css. */
+/* Лайтбокс. Источник: docs/redesign/reference/src/styles.css, строки 138-141. */
+.lb {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  display: grid;
+  place-items: center;
+  padding: clamp(12px, 4vw, 48px);
+  background: rgba(8, 7, 12, 0.82);
+  backdrop-filter: blur(6px);
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 0.25s,
+    visibility 0.25s;
+  cursor: zoom-out;
+}
+/* Отличие от эталона: при открытии visibility включается сразу, иначе «×» не берёт фокус в начале перехода (SPEC §6.8). */
+.lb.on {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.25s;
+}
+.lb img {
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 12px;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
+  cursor: default;
+}
+.lb-x {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 0;
+  background: #fff;
+  color: #111;
+  font: 400 22px/1 var(--text);
+  cursor: pointer;
+}

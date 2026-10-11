@@ -1,2 +1,295 @@
-/* Владелец: Ясень (PR 3, PR 7). Перенести из docs/redesign/reference/src/styles.css: работы: список, панель, лента, таблица, превью у курсора, строки 96-147, 254-256, 266-272.
-   Имена классов не менять. Стили reduced-motion и общие классы уже в base.css. */
+/* Работы: строки проектов, панель, лента скриншотов, таблица.
+   Источник: docs/redesign/reference/src/styles.css, строки 96-136 и медиазапросы 254-256, 266-270. */
+.projects {
+  display: grid;
+}
+.project {
+  border-bottom: 1px solid var(--line);
+}
+.project-toggle {
+  all: unset;
+  box-sizing: border-box;
+  cursor: pointer;
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: var(--gap);
+  align-items: baseline;
+  width: 100%;
+  padding-block: 22px;
+}
+.project-toggle:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: -2px;
+}
+.project-year {
+  grid-column: span 1;
+  font: 500 13px var(--mono);
+  color: var(--ink3);
+  font-variant-numeric: tabular-nums;
+}
+.project-name {
+  grid-column: span 4;
+  font: 700 clamp(24px, 2.6vw, 38px)/1.05 var(--display);
+  letter-spacing: -0.035em;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  transition: transform 0.45s var(--ease);
+}
+.project-name i {
+  width: 12px;
+  height: 12px;
+  border-radius: 3px;
+  background: var(--pc);
+  flex: none;
+  transform: rotate(45deg) scale(0);
+  transition: transform 0.45s var(--spring);
+}
+.project-desc {
+  grid-column: span 4;
+  color: var(--ink2);
+  font-size: 15.5px;
+}
+.project-role {
+  grid-column: span 2;
+  color: var(--ink2);
+  font-size: 14px;
+}
+.project-icon {
+  grid-column: span 1;
+  justify-self: end;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  box-shadow: inset 0 0 0 1px var(--line);
+  display: grid;
+  place-items: center;
+  transition:
+    transform 0.35s var(--spring),
+    background-color 0.2s;
+}
+.project-icon svg {
+  width: 14px;
+  height: 14px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+}
+.project:hover .project-name,
+.project.open .project-name {
+  transform: translateX(10px);
+}
+.project:hover .project-name i,
+.project.open .project-name i {
+  transform: rotate(45deg) scale(1);
+}
+.project.open .project-icon {
+  transform: rotate(45deg);
+  background: var(--ink);
+  color: var(--bg);
+}
+.project-panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.5s var(--ease);
+}
+.project.open .project-panel {
+  grid-template-rows: 1fr;
+}
+.project-panel > div {
+  overflow: hidden;
+}
+.project-body {
+  padding-bottom: 28px;
+}
+.pb {
+  grid-column: 2/-1;
+  display: grid;
+  border-bottom: 1px solid var(--line);
+}
+.pb-row {
+  display: grid;
+  grid-template-columns: minmax(0, 4fr) minmax(0, 7fr);
+  gap: var(--gap);
+  padding-block: 16px;
+  border-top: 1px solid var(--line);
+}
+.pb-row dt {
+  font: 500 11.5px/1.9 var(--mono);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink3);
+}
+.pb-row dd {
+  font-size: 15.5px;
+  line-height: 1.55;
+  color: var(--ink2);
+  max-width: 64ch;
+}
+.pb-lead dd,
+.pb-key dd {
+  color: var(--ink);
+  font-size: 16.5px;
+}
+.pb-key dt {
+  color: var(--pc, var(--accent));
+}
+.pb-list {
+  list-style: none;
+  display: grid;
+  gap: 7px;
+}
+.pb-list li {
+  position: relative;
+  padding-left: 18px;
+}
+.pb-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.75em;
+  width: 8px;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--pc, var(--accent));
+}
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.chips span {
+  padding: 2px 9px;
+  border-radius: 20px;
+  font-size: 13px;
+  box-shadow: inset 0 0 0 1px var(--line);
+  color: var(--ink2);
+}
+.pb-foot {
+  border-top: 0;
+  padding-top: 0;
+}
+.pb-more {
+  font-size: 15px;
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 1px;
+}
+.pb-more:hover {
+  border-bottom-color: transparent;
+}
+.pb-media {
+  grid-column: 2/-1;
+  display: flex;
+  gap: 12px;
+  width: 100%;
+  max-width: calc(var(--mh) * var(--a) + 24px);
+  --mh: clamp(240px, 30vw, 430px);
+  margin-bottom: 28px;
+}
+.pb-shot {
+  all: unset;
+  box-sizing: border-box;
+  display: block;
+  min-width: 0;
+  cursor: zoom-in;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow:
+    0 0 0 1px var(--line),
+    0 20px 40px -28px rgba(0, 0, 0, 0.5);
+  transition: transform 0.35s var(--spring);
+}
+.pb-shot.is-phone {
+  border-radius: 18px;
+}
+.pb-shot img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.pb-shot:hover {
+  transform: translateY(-3px);
+}
+.pb-shot:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+@media (max-width: 1100px) {
+  .project-name {
+    grid-column: span 5;
+  }
+  .project-desc {
+    grid-column: span 4;
+  }
+  .project-role {
+    display: none;
+  }
+  .project-year {
+    grid-column: span 2;
+  }
+  .project-icon {
+    grid-column: span 1;
+  }
+  .pb,
+  .pb-media {
+    grid-column: 1/-1;
+  }
+}
+@media (max-width: 820px) {
+  .project-toggle {
+    grid-template-columns: minmax(0, 1fr) auto;
+    row-gap: 6px;
+    padding-block: 18px;
+  }
+  .project-year {
+    grid-column: 1;
+    grid-row: 1;
+  }
+  .project-name {
+    grid-column: 1;
+    grid-row: 2;
+  }
+  .project-desc {
+    grid-column: 1;
+    grid-row: 3;
+    font-size: 15px;
+  }
+  .project-icon {
+    grid-column: 2;
+    grid-row: 1 / span 3;
+    align-self: center;
+  }
+  .pb {
+    grid-column: 1/-1;
+  }
+  .pb-row {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 6px;
+    padding-block: 14px;
+  }
+  .pb-media {
+    max-width: none;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    margin-inline: calc(var(--gut) * -1);
+    padding: 4px var(--gut) 8px;
+    width: auto;
+    scrollbar-width: none;
+  }
+  .pb-media::-webkit-scrollbar {
+    display: none;
+  }
+  .pb-shot {
+    flex: none !important;
+    height: 300px;
+    scroll-snap-align: start;
+  }
+  .pb-shot img {
+    height: 100%;
+    width: auto;
+  }
+}
