@@ -31,6 +31,7 @@ export default function ProjectMedia({ project: p }: { project: Project }) {
             width={s.width}
             height={s.height}
             alt={`Скриншот ${p.name}`}
+            loading="lazy"
             decoding="async"
             style={{ aspectRatio: s.ratio }}
           />
