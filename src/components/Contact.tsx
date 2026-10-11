@@ -1,4 +1,6 @@
-// Заглушка PR 1: оболочка раздела. Лён, PR 5: строки (ContactRow, data/contacts.ts) и футер (SPEC §6.7).
+import { contacts, footer } from '../data/contacts'
+import ContactRow from './ContactRow'
+
 export default function Contact() {
   return (
     <section className="contact wrap" id="contact" aria-labelledby="contactH">
@@ -7,7 +9,15 @@ export default function Contact() {
         <br />
         мне.
       </h2>
-      <div className="clist"></div>
+      <div className="clist">
+        {contacts.map((contact) => (
+          <ContactRow key={contact.label} contact={contact} />
+        ))}
+      </div>
+      <div className="foot">
+        <span>{footer.copyright}</span>
+        <span>{footer.hint}</span>
+      </div>
     </section>
   )
 }
