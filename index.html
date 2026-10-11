@@ -1,22 +1,38 @@
-<!DOCTYPE html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<link rel="icon" type="icon" href="/icon.jpg" />
-		<meta
-			name="viewport"
-			content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
-		/>
-		<meta name="theme-color" content="#0a0a0a" />
-		<meta name="apple-mobile-web-app-capable" content="yes" />
-		<meta
-			name="apple-mobile-web-app-status-bar-style"
-			content="black-translucent"
-		/>
-		<title>Sora</title>
-	</head>
-	<body>
-		<div id="root"></div>
-		<script type="module" src="/src/main.tsx" crossorigin="anonymous"></script>
-	</body>
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Никита Васильев - frontend-разработчик</title>
+    <meta
+      name="description"
+      content="Frontend-разработчик на React и TypeScript. Работы: Almanac, Parkovich и другие проекты."
+    />
+    <meta name="theme-color" content="#EFEEF3" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0B0A10" media="(prefers-color-scheme: dark)" />
+    <script>
+      // Тема до первой отрисовки, чтобы не было вспышки (SPEC §6.9).
+      try {
+        var t = localStorage.getItem('nv-theme')
+        if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t
+      } catch (e) {}
+    </script>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="ru_RU" />
+    <meta property="og:url" content="https://sorakiel.github.io/" />
+    <meta property="og:title" content="Никита Васильев - frontend-разработчик" />
+    <meta
+      property="og:description"
+      content="Frontend-разработчик на React и TypeScript. Работы: Almanac, Parkovich и другие проекты."
+    />
+    <meta property="og:image" content="https://sorakiel.github.io/og.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
 </html>

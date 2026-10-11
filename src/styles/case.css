@@ -1,0 +1,190 @@
+/* Кейсы Almanac и Parkovich (SPEC §6.4, §6.5). Значения из эталона, имена классов не менять. */
+
+.case {
+  margin-top: clamp(56px, 7vw, 96px);
+  background: var(--surface);
+  border-radius: 28px;
+  box-shadow: inset 0 0 0 1px var(--line);
+  padding: clamp(22px, 3.4vw, 48px);
+  overflow: hidden;
+}
+.case + .case {
+  margin-top: 16px;
+}
+.case-head {
+  align-items: start;
+}
+.case h3 {
+  grid-column: 1 / span 7;
+  font: 700 clamp(40px, 6vw, 88px) / 0.9 var(--display);
+  letter-spacing: -0.05em;
+}
+.case-head p {
+  grid-column: 8 / -1;
+  color: var(--ink2);
+  font-size: 16.5px;
+  align-self: end;
+}
+.case .sub {
+  grid-column: 1 / -1;
+  margin-top: 10px;
+  font: 500 13px var(--mono);
+  color: var(--ink3);
+}
+
+.facts {
+  margin-top: clamp(28px, 4vw, 48px);
+  border-top: 1px solid var(--line);
+}
+.facts > div {
+  grid-column: span 3;
+  padding-top: 18px;
+  display: grid;
+  gap: 6px;
+}
+.facts b {
+  font: 700 clamp(30px, 3.4vw, 48px) / 1 var(--display);
+  letter-spacing: -0.04em;
+  font-variant-numeric: tabular-nums;
+}
+.facts span {
+  color: var(--ink2);
+  font-size: 15px;
+}
+
+.case-links {
+  margin-top: 28px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+/* заметки */
+.notes {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--gap);
+  margin-top: clamp(24px, 3vw, 40px);
+}
+.notes > div {
+  display: grid;
+  gap: 8px;
+  align-content: start;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+}
+.notes h4 {
+  margin: 0;
+  font: 700 18px/1.2 var(--display);
+  letter-spacing: -0.02em;
+}
+.notes p {
+  color: var(--ink2);
+  font-size: 15.5px;
+}
+.srcs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 2px;
+}
+.src {
+  font: 400 11.5px var(--mono);
+  text-decoration: none;
+  color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 10%, transparent);
+  padding: 4px 8px;
+  border-radius: 7px;
+}
+.src:hover {
+  background: color-mix(in srgb, var(--accent) 18%, transparent);
+}
+.case-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  gap: var(--gap);
+  margin-top: clamp(24px, 3vw, 40px);
+  align-items: start;
+}
+.notes-col {
+  grid-template-columns: minmax(0, 1fr);
+  margin-top: 0;
+}
+
+/* скриншоты */
+.shots {
+  position: relative;
+  margin: clamp(24px, 3vw, 40px) 0 0;
+}
+.shot-d {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 14px;
+  box-shadow:
+    0 0 0 1px var(--line),
+    0 30px 60px -32px rgba(0, 0, 0, 0.45);
+}
+.shots-al .shot-d {
+  width: 84%;
+}
+.shot-m {
+  position: absolute;
+  right: 0;
+  bottom: 44px;
+  width: 21%;
+  height: auto;
+  border-radius: 24px;
+  box-shadow:
+    0 0 0 1px var(--line),
+    0 24px 50px -20px rgba(0, 0, 0, 0.55);
+}
+.shots-pk {
+  margin-top: 0;
+  padding-bottom: 6%;
+}
+.shots-pk .shot-d {
+  width: 86%;
+}
+.shot-ph {
+  position: absolute;
+  right: 0;
+  bottom: 30px;
+  width: 30%;
+  height: auto;
+  filter: drop-shadow(0 22px 30px rgba(0, 0, 0, 0.35));
+}
+.shots figcaption {
+  margin-top: 14px;
+  font: 400 12px/1.5 var(--mono);
+  color: var(--ink3);
+  max-width: 60ch;
+}
+
+img.zoomable {
+  cursor: zoom-in;
+}
+
+@media (max-width: 1100px) {
+  .notes {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .case-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .facts > div {
+    grid-column: span 6;
+    padding-bottom: 12px;
+  }
+}
+@media (max-width: 820px) {
+  .case h3,
+  .case-head p {
+    grid-column: 1 / -1;
+  }
+}
+@media (max-width: 520px) {
+  .facts > div {
+    grid-column: 1 / -1;
+  }
+}
