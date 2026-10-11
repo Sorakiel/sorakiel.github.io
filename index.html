@@ -10,6 +10,13 @@
     />
     <meta name="theme-color" content="#EFEEF3" media="(prefers-color-scheme: light)" />
     <meta name="theme-color" content="#0B0A10" media="(prefers-color-scheme: dark)" />
+    <script>
+      // Тема до первой отрисовки, чтобы не было вспышки (SPEC §6.9).
+      try {
+        var t = localStorage.getItem('nv-theme')
+        if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t
+      } catch (e) {}
+    </script>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <meta property="og:type" content="website" />
