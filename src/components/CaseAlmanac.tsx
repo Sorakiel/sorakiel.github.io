@@ -1,13 +1,17 @@
-import { almanacCase } from '../data/cases'
-import Case from './Case'
+import { almanacCase as data } from '../data/cases'
+import Case, { CaseFacts, CaseNotes, CaseShot } from './Case'
 
-// Заглушка PR 1. Лён, PR 4: целиком по SPEC §6.4 (данные в data/cases.ts).
+/** Кейс Almanac: скриншоты, цифры, заметки со ссылками на код (SPEC §6.4). */
 export default function CaseAlmanac() {
   return (
-    <Case id={almanacCase.id} headingId={almanacCase.headingId} ins="<Case almanac>">
-      <div className="grid-12 case-head">
-        <h3 id={almanacCase.headingId}>{almanacCase.title}</h3>
-      </div>
+    <Case data={data} ins="<Case almanac>">
+      <figure className="shots shots-al">
+        <CaseShot shot={data.desktop} className="shot-d" />
+        <CaseShot shot={data.phone} className="shot-m" />
+        <figcaption>{data.caption}</figcaption>
+      </figure>
+      <CaseFacts data={data} />
+      <CaseNotes notes={data.notes} />
     </Case>
   )
 }

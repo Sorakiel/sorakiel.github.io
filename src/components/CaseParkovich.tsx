@@ -1,12 +1,18 @@
-import { parkovichCase } from '../data/cases'
-import Case from './Case'
+import { parkovichCase as data } from '../data/cases'
+import Case, { CaseFacts, CaseNotes, CaseShot } from './Case'
 
-// Заглушка PR 1. Лён, PR 4: целиком по SPEC §6.5 (данные в data/cases.ts).
+/** Кейс Parkovich: цифры, заметки слева, сайт и телефон справа (SPEC §6.5). */
 export default function CaseParkovich() {
   return (
-    <Case id={parkovichCase.id} headingId={parkovichCase.headingId} ins="<Case parkovich>">
-      <div className="grid-12 case-head">
-        <h3 id={parkovichCase.headingId}>{parkovichCase.title}</h3>
+    <Case data={data} ins="<Case parkovich>">
+      <CaseFacts data={data} />
+      <div className="case-grid">
+        <CaseNotes notes={data.notes} className="notes notes-col" />
+        <figure className="shots shots-pk">
+          <CaseShot shot={data.desktop} className="shot-d" />
+          <CaseShot shot={data.phone} className="shot-ph" />
+          <figcaption>{data.caption}</figcaption>
+        </figure>
       </div>
     </Case>
   )
