@@ -15,13 +15,13 @@ export function useUI(): UIStore {
 /** Состояние лайтбокса (для оверлея Lightbox). */
 export function useLightboxState(): LightboxState | null {
   const ui = useUI()
-  return useSyncExternalStore(ui.subscribeLightbox, ui.getLightbox)
+  return useSyncExternalStore(ui.subscribeLightbox, ui.getLightbox, ui.getLightbox)
 }
 
 /** Последний тост (для оверлея Toast). */
 export function useToastState(): ToastState | null {
   const ui = useUI()
-  return useSyncExternalStore(ui.subscribeToast, ui.getToast)
+  return useSyncExternalStore(ui.subscribeToast, ui.getToast, ui.getToast)
 }
 
 /**
@@ -34,5 +34,6 @@ export function useInspecting(): boolean {
   return useSyncExternalStore(
     (fn) => ui.subscribeInspecting(fn),
     () => ui.inspecting.current,
+    () => false,
   )
 }
