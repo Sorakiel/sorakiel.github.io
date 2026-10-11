@@ -1,9 +1,8 @@
 import { aboutParagraphs, portraitCaption } from '../data/about'
 import Stack from './Stack'
 
-// Заглушка PR 1: оболочка раздела. Лён, PR 5: портрет-заглушка с поддержкой `src`
-// (figure.portrait > img вместо div.photo-placeholder), абзацы, стек (SPEC §6.6).
-export default function About() {
+/** `portraitSrc` - адрес фото. Пока его нет, на месте фото стоит заглушка. */
+export default function About({ portraitSrc }: { portraitSrc?: string }) {
   return (
     <section className="sec wrap" id="about" aria-labelledby="aboutH">
       <div className="grid-12 section-head">
@@ -12,6 +11,23 @@ export default function About() {
       </div>
       <div className="grid-12 about">
         <figure className="portrait rv" data-ins="<Portrait>">
+          {portraitSrc ? (
+            <img
+              src={portraitSrc}
+              alt={portraitCaption}
+              width={800}
+              height={1000}
+              loading="lazy"
+              decoding="async"
+            />
+          ) : (
+            <div className="photo-placeholder" role="img" aria-label="Место для фото">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <circle cx="12" cy="8.5" r="4" />
+                <path d="M4 20.5c.8-4 4-6.5 8-6.5s7.2 2.5 8 6.5" />
+              </svg>
+            </div>
+          )}
           <figcaption>{portraitCaption}</figcaption>
         </figure>
         <div className="about-text rv">
