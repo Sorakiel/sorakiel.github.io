@@ -1,0 +1,10 @@
+dist
+node_modules
+package-lock.json
+playwright-report
+test-results
+# эталон и спецификация лежат как есть
+docs
+# данные проектов взяты из эталона без изменений
+src/data/projects.ts
+COORDINATION.md

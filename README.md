@@ -1,54 +1,28 @@
-# React + TypeScript + Vite
+# Никита Васильев - frontend-разработчик
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Сайт-визитка: React 19, TypeScript, Vite, обычный глобальный CSS. Опубликован на https://sorakiel.github.io.
 
-Currently, two official plugins are available:
+Главная особенность - встроенный инспектор элементов: клавиша `I` показывает, как свёрстана страница.
+Спецификация и эталон лежат в `docs/redesign/` (`SPEC.md`, `reference/portfolio.html`).
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Запуск
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+```sh
+npm ci
+npm run dev        # сервер разработки
+npm run typecheck  # проверка типов
+npm run lint       # ESLint
+npm run format     # Prettier
+npm run build      # сборка в dist/
+npm run e2e        # сборка и Playwright (Chromium, 1440x900 и 390x844)
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Для e2e один раз: `npx playwright install chromium`.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Публикация
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+Сайт отдаётся GitHub Pages из ветки `gh-pages`. Публикация вручную из ветки `main`:
+
+```sh
+npm run deploy
 ```
