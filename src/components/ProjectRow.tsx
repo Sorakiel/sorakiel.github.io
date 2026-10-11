@@ -12,17 +12,21 @@ type Props = { project: Project; index: number }
 export default function ProjectRow({ project: p, index }: Props) {
   const ui = useUI()
   const [open, setOpen] = useState(false)
+  // Скриншоты панели грузятся при первом наведении, фокусе или раскрытии, а не вместе со страницей.
+  const [warm, setWarm] = useState(false)
   const panelId = `rp${index}`
 
   function toggle() {
     if (ui.inspecting.current) return
     const next = !open
     if (next) peek.hide()
+    setWarm(true)
     setOpen(next)
   }
 
   // Превью у курсора: только мышь, только над закрытой строкой и не в режиме инспектора.
   function onEnter(e: PointerEvent) {
+    setWarm(true)
     if (open || ui.inspecting.current) return
     peek.show(p, e.clientX, e.clientY)
   }
@@ -46,6 +50,7 @@ export default function ProjectRow({ project: p, index }: Props) {
         aria-controls={panelId}
         data-ins={index === 0 ? '<ProjectRow>' : undefined}
         onClick={toggle}
+        onFocus={() => setWarm(true)}
       >
         <span className="project-year">{p.year}</span>
         <span className="project-name">
@@ -60,10 +65,11 @@ export default function ProjectRow({ project: p, index }: Props) {
           </svg>
         </span>
       </button>
-      <div className="project-panel" id={panelId}>
+      {/* Свёрнутая панель скрыта только визуально (0fr), inert убирает её из Tab и дерева доступности. */}
+      <div className="project-panel" id={panelId} inert={!open}>
         <div>
           <div className="grid-12 project-body">
-            <ProjectMedia project={p} />
+            <ProjectMedia project={p} load={warm} />
             <ProjectFacts project={p} />
           </div>
         </div>

@@ -1,5 +1,5 @@
 import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
+import { createRoot, hydrateRoot } from 'react-dom/client'
 
 import '@fontsource/wix-madefor-display/500.css'
 import '@fontsource/wix-madefor-display/600.css'
@@ -26,8 +26,12 @@ import './styles/toast.css'
 
 import App from './App.tsx'
 
-createRoot(document.getElementById('root')!).render(
+const root = document.getElementById('root')!
+const app = (
   <StrictMode>
     <App />
-  </StrictMode>,
+  </StrictMode>
 )
+// В сборке HTML уже отрисован при пререндере (scripts/prerender.mjs), в dev корень пустой.
+if (root.hasChildNodes()) hydrateRoot(root, app)
+else createRoot(root).render(app)
