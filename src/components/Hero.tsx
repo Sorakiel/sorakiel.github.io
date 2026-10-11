@@ -1,6 +1,6 @@
 import MetaItem from './MetaItem'
 
-// Заглушка PR 1: итоговая разметка героя. Кварц, PR 2: проверка анимации строк и кнопок по эталону.
+// Герой (SPEC §6.2). Анимация строк и появление лида и кнопок - в hero.css.
 export default function Hero() {
   return (
     <section className="hero wrap" aria-label="Обо мне коротко">

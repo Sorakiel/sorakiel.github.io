@@ -1,9 +1,26 @@
-// Заглушка PR 1: итоговая разметка шапки без поведения.
-// Кварц, PR 2: прилипание и линия при прокрутке (.sc), тема с круговой заливкой.
-// Кварц, PR 6: кнопка инспектора (aria-pressed, клавиша I).
+import { useEffect, useRef } from 'react'
+
+import { toggleTheme } from '../lib/theme'
+import { useInspecting, useUI } from '../ui/useUI'
+
+// Шапка (SPEC §6.1). Линия снизу (.sc) ставится прямо на DOM, без стейта React.
+// Горячая клавиша I, перехват кликов и подсказка инспектора: PR 6.
 export default function Header() {
+  const ref = useRef<HTMLElement>(null)
+  const ui = useUI()
+  const inspecting = useInspecting()
+
+  useEffect(() => {
+    const el = ref.current
+    if (!el) return
+    const onScroll = () => el.classList.toggle('sc', scrollY > 8)
+    onScroll()
+    addEventListener('scroll', onScroll, { passive: true })
+    return () => removeEventListener('scroll', onScroll)
+  }, [])
+
   return (
-    <header className="hdr" id="hdr">
+    <header className="hdr" id="hdr" ref={ref}>
       <div className="wrap">
         <a className="me" href="#top" aria-label="Никита Васильев, наверх">
           <span className="mk" aria-hidden="true">
@@ -21,7 +38,8 @@ export default function Header() {
             className="ibtn"
             id="insBtn"
             type="button"
-            aria-pressed="false"
+            aria-pressed={inspecting}
+            onClick={() => ui.setInspecting(!ui.inspecting.current)}
             title="Инспектор: как свёрстана страница (клавиша I)"
           >
             <svg viewBox="0 0 24 24" aria-hidden="true">
@@ -31,7 +49,13 @@ export default function Header() {
             <span className="tx">Инспектор</span>
             <kbd>I</kbd>
           </button>
-          <button className="ibtn round" id="themeBtn" type="button" aria-label="Сменить тему">
+          <button
+            className="ibtn round"
+            id="themeBtn"
+            type="button"
+            aria-label="Сменить тему"
+            onClick={(e) => toggleTheme(e.currentTarget)}
+          >
             <svg viewBox="0 0 24 24" aria-hidden="true">
               <circle cx="12" cy="12" r="8" />
               <path d="M12 4a8 8 0 0 1 0 16z" fill="currentColor" stroke="none" />
