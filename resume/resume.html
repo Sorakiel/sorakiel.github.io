@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<title>Никита Васильев - резюме</title>
+<style>
+@font-face{font-family:"WMD";font-weight:700;src:url("../node_modules/@fontsource/wix-madefor-display/files/wix-madefor-display-cyrillic-700-normal.woff2") format("woff2");unicode-range:U+0400-04FF}
+@font-face{font-family:"WMD";font-weight:800;src:url("../node_modules/@fontsource/wix-madefor-display/files/wix-madefor-display-cyrillic-800-normal.woff2") format("woff2");unicode-range:U+0400-04FF}
+@font-face{font-family:"WMD";font-weight:700;src:url("../node_modules/@fontsource/wix-madefor-display/files/wix-madefor-display-latin-700-normal.woff2") format("woff2");unicode-range:U+0000-00FF,U+2000-206F}
+@font-face{font-family:"WMD";font-weight:800;src:url("../node_modules/@fontsource/wix-madefor-display/files/wix-madefor-display-latin-800-normal.woff2") format("woff2");unicode-range:U+0000-00FF,U+2000-206F}
+@font-face{font-family:"WMT";font-weight:400;src:url("../node_modules/@fontsource/wix-madefor-text/files/wix-madefor-text-cyrillic-400-normal.woff2") format("woff2");unicode-range:U+0400-04FF}
+@font-face{font-family:"WMT";font-weight:500;src:url("../node_modules/@fontsource/wix-madefor-text/files/wix-madefor-text-cyrillic-500-normal.woff2") format("woff2");unicode-range:U+0400-04FF}
+@font-face{font-family:"WMT";font-weight:600;src:url("../node_modules/@fontsource/wix-madefor-text/files/wix-madefor-text-cyrillic-600-normal.woff2") format("woff2");unicode-range:U+0400-04FF}
+@font-face{font-family:"WMT";font-weight:400;src:url("../node_modules/@fontsource/wix-madefor-text/files/wix-madefor-text-latin-400-normal.woff2") format("woff2");unicode-range:U+0000-00FF,U+2000-206F}
+@font-face{font-family:"WMT";font-weight:500;src:url("../node_modules/@fontsource/wix-madefor-text/files/wix-madefor-text-latin-500-normal.woff2") format("woff2");unicode-range:U+0000-00FF,U+2000-206F}
+@font-face{font-family:"WMT";font-weight:600;src:url("../node_modules/@fontsource/wix-madefor-text/files/wix-madefor-text-latin-600-normal.woff2") format("woff2");unicode-range:U+0000-00FF,U+2000-206F}
+@font-face{font-family:"MM";font-weight:400;src:url("../node_modules/@fontsource/martian-mono/files/martian-mono-cyrillic-400-normal.woff2") format("woff2");unicode-range:U+0400-04FF}
+@font-face{font-family:"MM";font-weight:400;src:url("../node_modules/@fontsource/martian-mono/files/martian-mono-latin-400-normal.woff2") format("woff2");unicode-range:U+0000-00FF,U+2000-206F}
+:root{--bg:#EFEEF3;--paper:#FAFAFC;--ink:#100D18;--ink2:#433E52;--ink3:#6B6679;--line:rgba(16,13,24,.14);--accent:#6236E0}
+@page{size:A4;margin:0}
+*{box-sizing:border-box;margin:0}
+html{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+body{font:400 9.1pt/1.42 "WMT",sans-serif;color:var(--ink);background:var(--paper)}
+.page{width:210mm;min-height:297mm;padding:12mm 15mm 12mm;break-after:page;position:relative}
+.page:last-child{break-after:auto}
+.mono{font-family:"MM",monospace;font-size:7pt;letter-spacing:.04em;text-transform:uppercase;color:var(--ink3)}
+header{display:grid;grid-template-columns:1fr auto;gap:10mm;align-items:end;padding-bottom:7mm;border-bottom:1.6pt solid var(--ink)}
+.mark{display:inline-grid;place-items:center;width:10mm;height:10mm;border-radius:2.6mm;background:var(--ink);color:#fff;font:800 9pt "WMD";margin-bottom:5mm}
+h1{font:800 26pt/1.05 "WMD";letter-spacing:-.02em}
+.role{font:700 13pt/1.2 "WMD";color:var(--accent);margin-top:2.5mm}
+.contacts{font-size:8.8pt;line-height:1.75;text-align:right;color:var(--ink2)}
+.contacts b{font-weight:600;color:var(--ink)}
+section{display:grid;grid-template-columns:34mm 1fr;gap:6mm;padding:4.4mm 0;border-bottom:.6pt solid var(--line)}
+section:last-of-type{border-bottom:0}
+section>h2{padding-top:.6mm}
+.lead{font-size:9.8pt;line-height:1.45;color:var(--ink)}
+.job{margin-bottom:4mm}
+.job:last-child{margin-bottom:0}
+.job-head{display:flex;justify-content:space-between;align-items:baseline;gap:6mm}
+.job h3{font:700 10.8pt/1.25 "WMD"}
+.job .when{white-space:nowrap}
+.job .org{color:var(--ink3);font-size:8.8pt;margin:.4mm 0 2mm}
+ul{list-style:none;padding:0}
+li{position:relative;padding-left:4.2mm;margin-bottom:.8mm;break-inside:avoid;color:var(--ink2)}
+li::before{content:"";position:absolute;left:0;top:.62em;width:2mm;height:1.4pt;background:var(--accent)}
+.stack{margin-top:2mm;color:var(--ink3);font-size:8.8pt}
+.stack b{font-weight:600;color:var(--ink2)}
+.kv{display:grid;grid-template-columns:34mm 1fr;gap:1.5mm 4mm}
+.kv dt{color:var(--ink3)}
+.tags{display:flex;flex-wrap:wrap;gap:1.6mm}
+.tags span{padding:.9mm 2.4mm;border:.6pt solid var(--line);border-radius:5mm;background:#fff;font-size:8.6pt;color:var(--ink2)}
+.proj{display:grid;grid-template-columns:1fr auto;gap:1mm 6mm;margin-bottom:2.4mm}
+.proj:last-child{margin-bottom:0}
+.proj b{font-weight:600}
+.proj span{color:var(--ink3)}
+.proj a{color:var(--accent);text-decoration:none}
+.edu strong{font:700 10.4pt "WMD"}
+.edu p{color:var(--ink2)}
+a{color:inherit;text-decoration:none}
+footer{position:absolute;left:15mm;right:15mm;bottom:8mm;display:flex;justify-content:space-between}
+</style>
+</head>
+<body>
+<div class="page">
+  <header>
+    <div>
+      <div class="mark">НВ</div>
+      <h1>Никита Васильев</h1>
+      <div class="role">Frontend-разработчик</div>
+    </div>
+    <div class="contacts">
+      <div>Москва</div>
+      <div><b>sorakield@gmail.com</b></div>
+      <div>Telegram <b>@sorakield</b></div>
+      <div>GitHub <b>github.com/Sorakiel</b></div>
+      <div>VK <b>vk.com/sorakiel</b></div>
+      <div>Портфолио <b>sorakiel.github.io</b></div>
+    </div>
+  </header>
+
+  <section>
+    <h2 class="mono">Обо мне</h2>
+    <p class="lead">Frontend-разработчик с ~2 годами опыта коммерческой и командной разработки на React и TypeScript. Специализируюсь на производительных SPA: компонентная архитектура, оптимизация загрузки, работа с REST API и состоянием (Redux, React Query). Есть опыт руководства командой до 10 человек: код-ревью, онбординг, стандарты кода и процессы. Придерживаюсь чистого кода, тестирования и документации.</p>
+  </section>
+
+  <section>
+    <h2 class="mono">Опыт<br>2 года</h2>
+    <div>
+      <div class="job">
+        <div class="job-head"><h3>Frontend-разработчик</h3><span class="mono when">Май 2025 - наст. время</span></div>
+        <div class="org">ООО «Паркович» · Москва · parkovich.ru</div>
+        <ul>
+          <li>Разработал лендинг и веб-приложение по поиску парковки, включая собственную карту</li>
+          <li>Реализовал интеграцию с внешним API, настроил обмен данными в реальном времени</li>
+          <li>Внедрил компонентный подход на React, что сократило время разработки новых страниц на 40%, и автоматизацию сборки на базе Vite</li>
+          <li>Инициировал рефакторинг фронтенд-архитектуры, уменьшив дублирование кода на ~30%</li>
+          <li>Активно взаимодействовал с командой продукта, предлагал решения для бизнес-задач</li>
+          <li>Анализировал причины багов, чтобы предотвращать их в будущем</li>
+          <li>Вёл контроль версий кода, отслеживал изменения и управлял ими</li>
+          <li>Разрабатывал и поддерживал клиентскую часть веб-приложения</li>
+        </ul>
+        <div class="stack"><b>Технологии:</b> React, React Hooks, TypeScript, JavaScript, Vite, CSS, Git, API</div>
+      </div>
+      <div class="job">
+        <div class="job-head"><h3>Руководитель группы разработки (Frontend)</h3><span class="mono when">Авг 2024 - янв 2025</span></div>
+        <div class="org">ITCenter РЭУ им. Плеханова · Москва</div>
+        <ul>
+          <li>Руководил разработкой сайта набора и внутренних проектов (команда 7-10 человек)</li>
+          <li>Организовывал работу отдела: анализировал задачи, распределял их между участниками, контролировал сроки</li>
+          <li>Проводил онбординг новых членов команды: объяснял структуру проекта, настраивал окружение, помогал с первыми задачами</li>
+          <li>Обеспечил качественную реализацию макетов из Figma и интеграцию с back-end</li>
+          <li>Инициировал создание внутренней документации в docs с описанием архитектуры, гайдами по настройке и FAQ для новичков</li>
+          <li>Активно коммуницировал с заказчиками (представители факультетов и организаторы университетских мероприятий), уточнял требования, демонстрировал результаты</li>
+          <li>Участвовал в разработке и поддержке клиентской части веб-приложений: вёрстка, логика, работа с формами и API</li>
+        </ul>
+        <div class="stack"><b>Технологии:</b> HTML5, CSS3, JavaScript, React, Git, TypeScript, Figma</div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="mono"><span>Никита Васильев · Frontend-разработчик</span><span>1 / 2</span></footer>
+</div>
+
+<div class="page">
+  <section>
+    <h2 class="mono">Проекты</h2>
+    <div>
+      <div class="proj"><div><b>Almanac</b> <span>свой продукт, с июля 2026</span></div><a class="mono" href="https://github.com/Sorakiel/almanac">github.com/Sorakiel/almanac</a></div>
+      <div class="proj"><div><b>Parkovich</b> <span>сервис поиска парковок, с мая 2025</span></div><a class="mono" href="https://parkovich.ru">parkovich.ru</a></div>
+      <div class="proj"><div><b>Набор в IT-Center</b> <span>сайт набора, 2025</span></div><a class="mono" href="https://nabor.itc-hub.ru">nabor.itc-hub.ru</a></div>
+      <div class="proj"><div><b>Сайт для Giulia Povkh</b> <span>2025</span></div><a class="mono" href="https://giuliapovkh.ru">giuliapovkh.ru</a></div>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="mono">Навыки</h2>
+    <div class="tags">
+      <span>React</span><span>React Native</span><span>TypeScript</span><span>JavaScript</span><span>HTML5</span><span>CSS3</span><span>Next.js</span><span>Redux</span><span>React Query</span><span>React Router</span><span>SCSS</span><span>Tailwind CSS</span><span>Vite</span><span>Webpack</span><span>Git</span><span>REST API</span><span>PostgreSQL</span><span>MySQL</span><span>MongoDB</span><span>FastAPI</span><span>Postman</span><span>Docker</span><span>CI/CD</span><span>Figma</span><span>Адаптивная вёрстка</span><span>Agile</span><span>Scrum</span><span>Jira</span><span>Trello</span>
+    </div>
+  </section>
+
+  <section class="edu">
+    <h2 class="mono">Образование</h2>
+    <div>
+      <div class="job">
+        <div class="job-head"><strong>Российский экономический университет имени Г.В. Плеханова</strong><span class="mono when">до 2027</span></div>
+        <p>Высшая школа кибертехнологий, математики и статистики. Информатика и вычислительная техника. Неоконченное высшее.</p>
+      </div>
+      <div class="job">
+        <div class="job-head"><strong>GeekBrains: факультет веб-разработки, Full-stack</strong><span class="mono when">2021</span></div>
+        <p>Повышение квалификации, курсы.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="mono">Формат работы</h2>
+    <dl class="kv">
+      <dt>Должность</dt><dd>Frontend-разработчик</dd>
+      <dt>Занятость</dt><dd>полная, частичная, проектная работа, стажировка</dd>
+      <dt>Формат</dt><dd>удалённо, гибрид</dd>
+      <dt>Языки</dt><dd>русский - родной, английский</dd>
+    </dl>
+  </section>
+
+  <footer class="mono"><span>Никита Васильев · Frontend-разработчик</span><span>2 / 2</span></footer>
+</div>
+</body>
+</html>

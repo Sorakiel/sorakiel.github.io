@@ -39,8 +39,9 @@ export const contacts: Contact[] = [
   },
   {
     label: 'Резюме',
-    value: '[ссылка на PDF]',
-    placeholder: true,
+    value: 'Скачать PDF',
+    href: '/nikita-vasilev-resume.pdf',
+    open: '/nikita-vasilev-resume.pdf',
   },
 ]
 
